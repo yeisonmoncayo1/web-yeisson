@@ -39,13 +39,24 @@
     });
   });
 
-  // Reveals y unveils al scroll
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add("mk-in"); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.18 });
-  document.querySelectorAll(".mk-reveal, .mk-unveil").forEach(function (el) { io.observe(el); });
+  // Reveals y unveils al scroll.
+  // OJO: threshold por porcentaje falla en bloques más altos que la pantalla
+  // (nunca se alcanza el porcentaje y el bloque se queda invisible para siempre).
+  // Por eso: threshold 0 + margen inferior negativo, que funciona a cualquier altura.
+  var revelables = document.querySelectorAll(".mk-reveal, .mk-unveil");
+  var revelar = function (el) { el.classList.add("mk-in"); };
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { revelar(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0, rootMargin: "0px 0px -10% 0px" });
+    revelables.forEach(function (el) { io.observe(el); });
+    // Red de seguridad: si algo falla, nada se queda invisible.
+    setTimeout(function () { revelables.forEach(revelar); }, 4000);
+  } else {
+    revelables.forEach(revelar);
+  }
 
   // Contadores: <span class="mk-counter" data-value="1973" data-suffix=""></span>
   var easeOut = function (t) { return 1 - Math.pow(1 - t, 3); };
