@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yeisson Moncayo · Programador — Webs, agentes de IA y diagnósticos para negocios</title>
+<meta name="description" content="Diagnostico tu negocio con datos reales y construyo lo que le falta: página web, agente de WhatsApp con IA y edición de video. Cáqueza, Cundinamarca y toda Colombia.">
+<meta name="theme-color" content="#07090c">
+<link rel="icon" href="icono.png">
+<meta property="og:title" content="Yeisson Moncayo · Programador">
+<meta property="og:description" content="Primero te muestro dónde pierdes clientes. Después lo arreglo.">
+<meta property="og:image" content="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="motion.css">
+<style>
+:root{
+  /* motion-kit */
+  --mk-primario:#2fd3de; --mk-secundario:#14a8b4; --mk-fondo:#07090c; --mk-texto:#eef2f5;
+  --mk-split-base:1.05s;
+  --bg:#07090c; --bg2:#0c1014; --card:#11161b; --card2:#161d23;
+  --line:#1e262e; --line2:#2b3640;
+  --txt:#eef2f5; --txt2:#98a5b0; --txt3:#5f6d78;
+  --tl:#14a8b4; --tl2:#2fd3de; --tl3:#0c5f66;
+  --wa:#25D366;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--txt);overflow-x:hidden;
+  font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.w{width:100%;max-width:1180px;margin:0 auto;padding:0 22px}
+section{position:relative}
+
+/* ══ HEADER ══ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(7,9,12,.82);backdrop-filter:blur(16px);
+  border-bottom:1px solid transparent;transition:.3s;
+}
+header.sc{border-bottom-color:var(--line);background:rgba(7,9,12,.95)}
+header .in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:70px}
+header img{height:46px;width:auto}
+header nav{display:flex;gap:26px}
+header nav a{font-size:14px;color:var(--txt2);font-weight:500;transition:.2s;position:relative}
+header nav a:hover{color:var(--tl2)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:12px 22px;border-radius:999px;font-weight:700;font-size:14.5px;
+  transition:.22s cubic-bezier(.4,0,.2,1);border:1px solid transparent;cursor:pointer;white-space:nowrap;
+}
+.btn-wa{background:var(--wa);color:#042812;box-shadow:0 4px 20px rgba(37,211,102,.25)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.4)}
+.btn-tl{background:linear-gradient(135deg,var(--tl2),var(--tl));color:#032024;box-shadow:0 4px 24px rgba(20,168,180,.28)}
+.btn-tl:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(47,211,222,.45)}
+.btn-gh{border-color:var(--line2);color:var(--txt)}
+.btn-gh:hover{border-color:var(--tl);color:var(--tl2);background:rgba(20,168,180,.07)}
+.btn svg{width:17px;height:17px;fill:currentColor;flex:0 0 17px}
+.burger{display:none;background:none;border:0;color:var(--txt);padding:8px}
+.burger svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ══ HERO ══ */
+.hero{padding:150px 0 96px;overflow:hidden}
+.hero::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(760px 520px at 78% 4%,rgba(20,168,180,.20),transparent 62%),
+    radial-gradient(560px 460px at 6% 46%,rgba(20,168,180,.09),transparent 62%);
+}
+.hero .w{position:relative;z-index:1}
+.pill{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:999px;
+  background:rgba(20,168,180,.09);border:1px solid rgba(20,168,180,.28);
+  font-size:12.5px;color:var(--tl2);font-weight:600;margin-bottom:24px;letter-spacing:.01em;
+}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--tl2);box-shadow:0 0 0 0 rgba(47,211,222,.7);animation:pp 2.2s infinite}
+@keyframes pp{70%{box-shadow:0 0 0 9px rgba(47,211,222,0)}100%{box-shadow:0 0 0 0 rgba(47,211,222,0)}}
+h1{
+  font-size:clamp(36px,6.6vw,70px);font-weight:900;line-height:1.02;
+  letter-spacing:-.038em;margin-bottom:24px;max-width:15ch;
+}
+h1 em,h1 .mk-w.hl>span{font-style:normal;background:linear-gradient(105deg,var(--tl2) 10%,var(--tl) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1.mk-split{max-width:16ch}
+.lead{font-size:clamp(16px,2.1vw,19.5px);color:var(--txt2);max-width:56ch;margin-bottom:34px;line-height:1.62}
+.lead b{color:var(--txt);font-weight:650}
+.cta{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:44px}
+.cta .btn{padding:15px 28px;font-size:15.5px}
+.strip{display:flex;flex-wrap:wrap;gap:12px}
+.strip div{
+  display:flex;align-items:center;gap:9px;font-size:13px;color:var(--txt2);
+  background:var(--card);border:1px solid var(--line);padding:9px 15px;border-radius:999px;
+}
+.strip svg{width:15px;height:15px;stroke:var(--tl2);fill:none;stroke-width:2.4;flex:0 0 15px}
+
+/* ══ SECCIÓN ══ */
+.sec{padding:88px 0}
+.sec.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--tl2);font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:11px;
+}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--tl);border-radius:2px}
+h2{font-size:clamp(27px,4.1vw,42px);font-weight:850;letter-spacing:-.032em;line-height:1.1;margin-bottom:16px;max-width:20ch}
+h2.c{max-width:none}
+.sublead{color:var(--txt2);font-size:16.5px;max-width:62ch;margin-bottom:44px;line-height:1.65}
+.sublead b{color:var(--txt);font-weight:650}
+h3{font-size:19px;font-weight:750;letter-spacing:-.018em;line-height:1.25;margin-bottom:9px}
+
+/* ══ FLUJO ══ */
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch;margin-bottom:16px}
+.fstep{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;position:relative;overflow:hidden}
+.fstep::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--tl),transparent)}
+.fstep .n{font-family:var(--mono);font-size:11px;color:var(--tl2);letter-spacing:.14em;margin-bottom:11px;font-weight:700}
+.fstep p{font-size:14px;color:var(--txt2);line-height:1.58}
+.farrow{display:grid;place-items:center;color:var(--tl3);font-size:22px;font-weight:900}
+
+/* ══ CARDS SERVICIO ══ */
+.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:18px}
+.svc{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:26px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.25s;
+}
+.svc::before{
+  content:'';position:absolute;inset:0;opacity:0;transition:.3s;pointer-events:none;
+  background:radial-gradient(420px 220px at 50% -10%,rgba(20,168,180,.13),transparent 70%);
+}
+.svc:hover{border-color:rgba(20,168,180,.42);transform:translateY(-4px)}
+.svc:hover::before{opacity:1}
+.svc .ic{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;
+  background:linear-gradient(135deg,rgba(47,211,222,.16),rgba(20,168,180,.05));
+  border:1px solid rgba(20,168,180,.26);position:relative;z-index:1;
+}
+.svc .ic svg{width:21px;height:21px;stroke:var(--tl2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.svc>*{position:relative;z-index:1}
+.svc p.d{font-size:14.2px;color:var(--txt2);line-height:1.6;margin-bottom:16px}
+.svc ul{list-style:none;margin-bottom:20px}
+.svc li{font-size:13.4px;color:var(--txt2);padding:5px 0 5px 21px;position:relative;line-height:1.5}
+.svc li::before{
+  content:'';position:absolute;left:0;top:11px;width:11px;height:6px;
+  border-left:2px solid var(--tl2);border-bottom:2px solid var(--tl2);transform:rotate(-45deg);
+}
+.svc .foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.price{font-size:25px;font-weight:850;letter-spacing:-.03em;margin-bottom:2px;display:flex;align-items:baseline;gap:7px}
+.price small{font-size:12px;color:var(--txt3);font-weight:600}
+.price .from{font-size:12.5px;color:var(--txt3);font-weight:600}
+.deliv{font-family:var(--mono);font-size:11.5px;color:var(--tl2);margin-bottom:15px;letter-spacing:.02em}
+.svc .btn{width:100%}
+.tagd{
+  position:absolute;top:20px;right:20px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;padding:4px 9px;border-radius:999px;
+  background:rgba(20,168,180,.13);color:var(--tl2);border:1px solid rgba(20,168,180,.3);z-index:2;font-weight:700;
+}
+.svc.big{grid-column:span 2}
+.svc.ask{background:linear-gradient(165deg,rgba(20,168,180,.10),var(--card));border-color:rgba(20,168,180,.34);border-style:dashed}
+.svc.ask:hover{border-style:solid}
+.svc.ask .price{background:linear-gradient(135deg,var(--tl2),var(--tl));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ══ MOCKUPS ══ */
+.demo{margin-top:46px}
+.demolbl{
+  display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);
+  border:1px dashed var(--line2);padding:5px 12px;border-radius:999px;margin-bottom:18px;
+}
+.demogrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+
+/* informe */
+.rep{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.rep .rh{padding:20px 22px;border-bottom:1px solid var(--line);background:var(--card2);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.rep .rh .t{font-size:12px;color:var(--txt3);font-family:var(--mono);letter-spacing:.08em}
+.rep .rh h4{font-size:16px;font-weight:750;margin-top:3px}
+.score{text-align:center;flex:0 0 auto}
+.score .v{font-size:34px;font-weight:900;line-height:1;letter-spacing:-.04em;color:#ff8a4c;font-family:var(--mono)}
+.score .l{font-size:10px;font-family:var(--mono);color:var(--txt3);letter-spacing:.1em;text-transform:uppercase}
+.rep .rb{padding:20px 22px}
+.dim{margin-bottom:13px}
+.dim .top{display:flex;justify-content:space-between;font-size:12.8px;margin-bottom:6px}
+.dim .top span:first-child{color:var(--txt2)}
+.dim .top span:last-child{font-family:var(--mono);font-weight:700;font-size:12px}
+.dbar{height:6px;background:#1c242b;border-radius:99px;overflow:hidden}
+.dbar>i{display:block;height:100%;border-radius:99px}
+.leak{
+  margin-top:18px;padding:14px 16px;border-radius:11px;
+  background:rgba(255,92,92,.07);border:1px solid rgba(255,92,92,.24);border-left:3px solid #ff5c5c;
+}
+.leak .lt{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#ff7b7b;margin-bottom:6px;font-weight:700}
+.leak p{font-size:13.2px;color:var(--txt2);line-height:1.55}
+
+/* whatsapp */
+.wap{background:#0b141a;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.wah{background:#1f2c33;padding:13px 16px;display:flex;align-items:center;gap:11px}
+.wah .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--tl2),var(--tl3));display:grid;place-items:center;font-weight:900;color:#04252a;font-size:15px}
+.wah .nm{font-size:14px;font-weight:650}
+.wah .st{font-size:11px;color:var(--wa);display:flex;align-items:center;gap:5px}
+.wah .st i{width:6px;height:6px;border-radius:50%;background:var(--wa)}
+.wab{padding:18px 14px;display:flex;flex-direction:column;gap:9px;flex:1;background-image:radial-gradient(rgba(255,255,255,.022) 1px,transparent 1px);background-size:22px 22px}
+.msg{max-width:82%;padding:9px 13px;border-radius:12px;font-size:13.4px;line-height:1.48;position:relative;animation:in .45s both}
+@keyframes in{from{opacity:0;transform:translateY(9px)}}
+.msg.them{background:#1f2c33;align-self:flex-start;border-bottom-left-radius:4px;color:#e9edef}
+.msg.me{background:#005c4b;align-self:flex-end;border-bottom-right-radius:4px;color:#e9edef}
+.msg .tm{font-size:9.5px;color:rgba(255,255,255,.42);text-align:right;margin-top:3px;font-family:var(--mono)}
+.msg:nth-child(2){animation-delay:.15s}.msg:nth-child(3){animation-delay:.3s}
+.msg:nth-child(4){animation-delay:.45s}.msg:nth-child(5){animation-delay:.6s}.msg:nth-child(6){animation-delay:.75s}
+.wafoot{padding:11px 16px;border-top:1px solid #1f2c33;font-size:11.5px;color:var(--txt3);font-family:var(--mono);text-align:center}
+
+/* video antes/despues */
+.vid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vbox{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;text-align:center}
+.vbox .lb{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.vbox.after .lb{color:var(--tl2)}
+.frame{margin:0 auto;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(160deg,#242c33,#151b21);border:1px solid var(--line2)}
+.frame.h{width:100%;aspect-ratio:16/9}
+.frame.v{width:53%;aspect-ratio:9/16}
+/* ilustración animada del antes/después (se reemplaza sola si hay videos) */
+.frame .ph{position:absolute;inset:0;overflow:hidden}
+.sujeto{position:absolute;border-radius:50% 50% 44% 44%;background:linear-gradient(170deg,#3a4650,#222c34);box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.sujeto::after{content:'';position:absolute;left:50%;bottom:-58%;transform:translateX(-50%);width:190%;height:60%;border-radius:44% 44% 0 0;background:linear-gradient(170deg,#333e47,#1c242b)}
+.frame.h .sujeto{width:20%;aspect-ratio:1;top:26%;left:22%}
+.frame.h .crop{position:absolute;top:6%;bottom:6%;left:12%;width:40%;border:1.5px dashed rgba(255,92,92,.75);border-radius:5px;animation:cropMove 4.2s ease-in-out infinite alternate}
+@keyframes cropMove{from{left:12%}to{left:46%}}
+.frame.h .cropLb{position:absolute;bottom:32%;left:12%;font-family:var(--mono);font-size:7.5px;letter-spacing:.08em;color:#ff8a8a;background:rgba(20,8,8,.88);padding:2px 5px;border-radius:3px;animation:cropMove 4.2s ease-in-out infinite alternate}
+.wave{position:absolute;left:8%;right:8%;bottom:9%;height:20%;display:flex;align-items:center;gap:2px}
+.wave i{flex:1;background:rgba(255,255,255,.28);border-radius:2px;height:22%}
+.wave i.a{height:66%}.wave i.b{height:92%}.wave i.c{height:44%}
+.wave i.sil{background:rgba(255,92,92,.5);height:8%}
+.ehh{position:absolute;font-family:var(--mono);font-size:8px;color:#ff8a8a;border:1px solid rgba(255,92,92,.45);background:rgba(20,8,8,.8);padding:1px 5px;border-radius:99px;bottom:33%;animation:ehh 3.4s ease-in-out infinite}
+.ehh.e1{left:26%}.ehh.e2{left:58%;animation-delay:1.7s}
+@keyframes ehh{0%,72%{opacity:0;transform:translateY(5px)}80%,96%{opacity:1;transform:none}100%{opacity:0}}
+.frame.v .sujeto{width:44%;aspect-ratio:1;top:19%;left:28%}
+.karaoke{position:absolute;left:7%;right:7%;bottom:15%;text-align:center;font-size:11px;font-weight:900;line-height:1.35;letter-spacing:-.01em;text-shadow:0 2px 7px rgba(0,0,0,.95)}
+.karaoke span{color:rgba(255,255,255,.55);animation:kw 3.6s steps(1) infinite}
+.karaoke span:nth-child(1){animation-delay:0s}.karaoke span:nth-child(2){animation-delay:.6s}
+.karaoke span:nth-child(3){animation-delay:1.2s}.karaoke span:nth-child(4){animation-delay:1.8s}
+.karaoke span:nth-child(5){animation-delay:2.4s}.karaoke span:nth-child(6){animation-delay:3s}
+@keyframes kw{0%,16.6%{color:var(--tl2);text-shadow:0 0 12px rgba(47,211,222,.55),0 2px 7px rgba(0,0,0,.95)}16.7%,100%{color:rgba(255,255,255,.6)}}
+.frame.v .ph::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 42%)}
+.illb{position:absolute;top:6px;right:6px;font-family:var(--mono);font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);background:rgba(0,0,0,.62);padding:2px 7px;border-radius:99px;z-index:3;white-space:nowrap}
+.frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;background:#000}
+.frame.has-video video{display:block}
+.frame.has-video .ph,.frame.has-video .cap{display:none}
+.frame .cap{
+  position:absolute;left:8%;right:8%;bottom:13%;text-align:center;
+  font-size:12px;font-weight:900;letter-spacing:-.01em;line-height:1.25;
+  text-shadow:0 2px 6px rgba(0,0,0,.9);
+}
+.frame .cap b{color:var(--tl2)}
+.vbox ul{list-style:none;margin-top:14px;text-align:left}
+.vbox li{font-size:12.4px;color:var(--txt2);padding:3px 0 3px 17px;position:relative}
+.vbox.before li::before{content:'×';position:absolute;left:0;color:#ff5c5c;font-weight:900}
+.vbox.after li::before{content:'✓';position:absolute;left:0;color:var(--tl2);font-weight:900;font-size:11px}
+
+/* ══ PROCESO ══ */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px;counter-reset:s}
+.step{padding-top:26px;border-top:2px solid var(--line);position:relative;counter-increment:s;transition:.25s}
+.step::before{
+  content:counter(s,decimal-leading-zero);position:absolute;top:-13px;left:0;
+  font-family:var(--mono);font-size:12px;font-weight:800;color:var(--tl2);
+  background:var(--bg);padding-right:11px;letter-spacing:.06em;
+}
+.sec.alt .step::before{background:var(--bg2)}
+.step:hover{border-top-color:var(--tl)}
+.step p{font-size:13.8px;color:var(--txt2);line-height:1.58}
+
+/* ══ FAQ ══ */
+.faq{max-width:820px}
+details{border-bottom:1px solid var(--line);padding:2px 0}
+summary{
+  padding:19px 40px 19px 0;cursor:pointer;list-style:none;font-weight:650;font-size:16px;
+  position:relative;transition:.2s;line-height:1.4;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--tl2)}
+summary::after{
+  content:'+';position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-size:23px;font-weight:300;color:var(--tl2);transition:.25s;line-height:1;
+}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details p{padding:0 8px 20px 0;color:var(--txt2);font-size:14.8px;line-height:1.68}
+
+/* ══ CTA FINAL ══ */
+.final{padding:96px 0;text-align:center;position:relative;overflow:hidden}
+.final::before{content:'';position:absolute;inset:0;background:radial-gradient(660px 420px at 50% 0%,rgba(20,168,180,.20),transparent 68%)}
+.final .w{position:relative;z-index:1}
+.final h2{margin:0 auto 16px;max-width:19ch}
+.final .lead{margin:0 auto 32px}
+.final .cta{justify-content:center;margin-bottom:26px}
+.finalnote{font-size:13.5px;color:var(--txt3)}
+
+/* ══ FOOTER ══ */
+footer{border-top:1px solid var(--line);padding:44px 0 34px;background:var(--bg2)}
+.fgrid{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:30px}
+footer img{height:42px;margin-bottom:14px}
+footer .fd{font-size:13.5px;color:var(--txt2);max-width:34ch;line-height:1.6}
+.fcol h5{font-size:11px;font-family:var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--txt3);margin-bottom:13px;font-weight:700}
+.fcol a,.fcol span{display:block;font-size:13.8px;color:var(--txt2);margin-bottom:9px;transition:.2s}
+.fcol a:hover{color:var(--tl2)}
+.fbot{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--txt3)}
+
+/* ══ FLOTANTE ══ */
+.float{
+  position:fixed;right:20px;bottom:20px;z-index:99;display:flex;align-items:center;gap:11px;
+  background:var(--wa);color:#04240f;padding:14px 21px;border-radius:999px;font-weight:750;font-size:14.5px;
+  box-shadow:0 8px 30px rgba(37,211,102,.42);transition:.28s cubic-bezier(.4,0,.2,1);
+  transform:translateY(90px);opacity:0;pointer-events:none;
+}
+.float.on{transform:translateY(0);opacity:1;pointer-events:auto}
+.float:hover{transform:translateY(-3px) scale(1.03)}
+.float svg{width:21px;height:21px;fill:currentColor}
+
+/* ══ AJUSTES AL MOTION KIT ══ */
+.mk-intro{animation-delay:.85s;animation-duration:.7s}
+.mk-intro img{max-width:min(58vw,340px)}
+.mk-hero>*:nth-child(1){animation-delay:1.0s}
+.mk-hero>*:nth-child(2){animation-delay:1.6s}
+.mk-hero>*:nth-child(3){animation-delay:1.75s}
+.mk-hero>*:nth-child(4){animation-delay:1.9s}
+.mk-hero>*:nth-child(5){animation-delay:2.05s}
+.mk-progress{background:linear-gradient(90deg,var(--tl),var(--tl2));height:2.5px}
+.svc.mk-card{transform-style:preserve-3d}
+.mk-card:hover{box-shadow:0 26px 60px rgba(20,168,180,.16)}
+
+/* ══ BANDA DE CIFRAS ══ */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.stat{background:var(--bg2);padding:26px 22px;text-align:center}
+.stat .v{font-size:38px;font-weight:900;letter-spacing:-.045em;line-height:1;font-family:var(--mono);
+  background:linear-gradient(135deg,var(--tl2),var(--tl));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .k{font-size:13px;color:var(--txt2);margin-top:9px;line-height:1.4}
+
+/* ══ ESCENA 3D (demo del producto) ══ */
+.scene{height:210vh;position:relative;background:var(--bg)}
+.scene .stage{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;perspective:1300px;transform-style:preserve-3d}
+.scene .sky{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 620px at 50% 50%,rgba(20,168,180,calc(.05 + .22*var(--mk-p,0))),transparent 68%)}
+.scene .grid{position:absolute;inset:-30%;pointer-events:none;opacity:calc(.10 + .3*var(--mk-p,0));
+  background-image:linear-gradient(rgba(47,211,222,.28) 1px,transparent 1px),linear-gradient(90deg,rgba(47,211,222,.28) 1px,transparent 1px);
+  background-size:64px 64px;
+  transform:perspective(560px) rotateX(66deg) translateY(calc(var(--mk-p,0)*300px)) scale(1.7);
+  mask-image:radial-gradient(ellipse 60% 52% at 50% 42%,#000,transparent 76%)}
+.scene .lay{position:absolute;inset:0;display:grid;place-items:center;will-change:transform}
+.scene .browser{
+  width:min(660px,84vw);border-radius:14px;overflow:hidden;background:var(--card);
+  border:1px solid var(--line2);box-shadow:0 40px 110px rgba(0,0,0,.72),0 0 0 1px rgba(47,211,222,.12);
+  transform:translateY(calc(var(--mk-p,0)*-9vh)) translateZ(calc(-620px*(1 - var(--mk-p,0)))) rotateX(calc((1 - var(--mk-p,0))*17deg)) scale(calc(.84 + .16*var(--mk-p,0)));
+  filter:brightness(calc(.5 + .5*var(--mk-p,0)))}
+.bbar{height:32px;background:var(--card2);display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line)}
+.bbar i{width:9px;height:9px;border-radius:50%;background:#39424b;display:block}
+.bbar .url{margin-left:12px;font-family:var(--mono);font-size:10.5px;color:var(--txt3);background:var(--bg);padding:4px 14px;border-radius:99px;flex:1;max-width:290px;text-align:center}
+.bview{aspect-ratio:16/10;position:relative;background:linear-gradient(165deg,#0e161a,#080b0e);overflow:hidden;padding:14px 18px}
+.bview::before{content:'';position:absolute;inset:0;background:radial-gradient(400px 240px at 74% 8%,rgba(20,168,180,.26),transparent 66%)}
+.bskel{position:relative;height:100%;display:flex;flex-direction:column}
+.bskel .nav{display:flex;align-items:center;gap:9px;margin-bottom:auto}
+.bskel .nav .dot{width:15px;height:15px;border-radius:50%;background:linear-gradient(135deg,var(--tl2),var(--tl3));flex:0 0 15px}
+.bskel .nav .n{height:5px;width:34px;background:rgba(255,255,255,.15);border-radius:99px}
+.bskel .nav .cta{margin-left:auto;height:17px;width:60px;border-radius:99px;background:rgba(47,211,222,.35)}
+.bskel .mid{text-align:center;padding:6px 0 14px}
+.bskel .l1{height:8px;width:112px;background:rgba(47,211,222,.55);border-radius:99px;margin:0 auto 12px}
+.bskel .l2{height:17px;width:min(320px,58%);background:rgba(255,255,255,.2);border-radius:5px;margin:0 auto 7px}
+.bskel .l3{height:17px;width:min(215px,40%);background:rgba(255,255,255,.11);border-radius:5px;margin:0 auto 15px}
+.bskel .b{display:inline-block;height:26px;width:112px;border-radius:99px;background:linear-gradient(135deg,var(--tl2),var(--tl));box-shadow:0 5px 18px rgba(47,211,222,.28)}
+.bskel .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:auto}
+.bskel .cards div{height:52px;border-radius:8px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.bskel .cards div:nth-child(2){background:rgba(47,211,222,.08);border-color:rgba(47,211,222,.2)}
+.scene .fg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;pointer-events:none;
+  transform:translateZ(calc(190px*(1 - var(--mk-p,0))))}
+.scene .fg h3{font-size:clamp(24px,4.6vw,44px);font-weight:900;letter-spacing:-.035em;max-width:16ch;line-height:1.08;
+  text-shadow:0 4px 30px rgba(0,0,0,.95);opacity:calc(1 - 2.2*var(--mk-p,0))}
+.scene .tail{position:absolute;left:0;right:0;bottom:5%;text-align:center;padding:26px 24px 0;
+  background:linear-gradient(to top,var(--bg) 42%,rgba(7,9,12,.86) 72%,transparent);
+  opacity:calc((var(--mk-p,0) - .58)/.28);transform:translateY(calc(max(0,1 - (var(--mk-p,0) - .58)/.28)*22px))}
+.scene .tail p{font-size:clamp(15px,2.3vw,19px);color:var(--txt);font-weight:600;max-width:44ch;margin:0 auto 18px;text-shadow:0 2px 16px rgba(0,0,0,.9)}
+.scrollhint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--txt3);opacity:calc(1 - 3*var(--mk-p,0));display:flex;align-items:center;gap:9px}
+.scrollhint::after{content:'';width:1px;height:22px;background:linear-gradient(var(--tl2),transparent)}
+
+/* ══ BANDA DE LANZAMIENTO ══ */
+.launch{background:var(--bg);padding:34px 0}
+.lbox{
+  border:1px solid rgba(20,168,180,.4);border-radius:18px;padding:26px 30px;
+  background:linear-gradient(120deg,rgba(20,168,180,.12),rgba(20,168,180,.03) 55%,transparent);
+  display:flex;align-items:center;gap:26px;flex-wrap:wrap;position:relative;overflow:hidden;
+}
+.lbox::before{content:'';position:absolute;top:-60%;left:-10%;width:60%;height:220%;
+  background:radial-gradient(closest-side,rgba(47,211,222,.14),transparent);pointer-events:none}
+.lbox .txt{flex:1 1 380px;position:relative}
+.lbox .kick{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--tl2);font-weight:700;margin-bottom:9px;display:flex;align-items:center;gap:9px}
+.lbox .kick i{width:6px;height:6px;border-radius:50%;background:var(--tl2);box-shadow:0 0 0 0 rgba(47,211,222,.7);animation:pp 2.2s infinite}
+.lbox h3{font-size:clamp(19px,2.7vw,25px);font-weight:850;letter-spacing:-.025em;margin-bottom:8px;line-height:1.2}
+.lbox p{font-size:14.5px;line-height:1.6;margin:0;max-width:62ch}
+.lbox .act{position:relative;flex:0 0 auto;display:flex;flex-direction:column;gap:9px;align-items:stretch}
+.lbox .cnt{font-family:var(--mono);font-size:11.5px;color:var(--txt3);text-align:center;letter-spacing:.04em}
+.lbox .cnt b{color:var(--tl2)}
+@media(max-width:760px){.lbox{padding:22px;gap:18px}.lbox .act{width:100%}}
+
+/* ══ MARQUEE ══ */
+.mq{padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.mq .mk-marquee-track{align-items:center}
+.mq span{font-size:15px;font-weight:700;color:var(--txt3);letter-spacing:-.01em;display:inline-flex;align-items:center;gap:14px;white-space:nowrap}
+.mq span::after{content:'◆';color:var(--tl);font-size:8px}
+
+@media(max-width:900px){
+  .flow{grid-template-columns:1fr}
+  .farrow{transform:rotate(90deg);padding:2px 0}
+  .demogrid{grid-template-columns:1fr}
+  .svc.big{grid-column:span 1}
+}
+@media(max-width:760px){
+  header nav{
+    display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:0;
+    background:rgba(7,9,12,.99);border-bottom:1px solid var(--line);padding:10px 22px 20px;
+  }
+  header nav.open{display:flex}
+  header nav a{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+  header .btn-wa{display:none}
+  .burger{display:block}
+  .hero{padding:120px 0 70px}
+  .sec{padding:66px 0}
+  .cta .btn,.final .cta .btn{width:100%}
+  .float{right:14px;bottom:14px;padding:13px 18px;font-size:13.5px}
+  .vid{grid-template-columns:1fr}
+  .frame.v{width:44%}
+}
+@media(max-width:600px){
+  .scene{height:190vh}
+  .scene .browser{width:92vw;transform:translateY(calc(var(--mk-p,0)*-11vh)) translateZ(calc(-560px*(1 - var(--mk-p,0)))) rotateX(calc((1 - var(--mk-p,0))*15deg)) scale(calc(.86 + .14*var(--mk-p,0)))}
+  .bview{aspect-ratio:4/3;padding:12px 14px}
+  .bskel .cards div{height:38px}
+  .scene .tail{bottom:13%;padding-top:22px}
+  .scene .tail p{font-size:15.5px}
+}
+@media(prefers-reduced-motion:reduce){
+  .msg{animation:none!important;opacity:1!important;transform:none!important}
+  .mk-intro{display:none!important}
+  .mk-hero>*{opacity:1!important;animation:none!important}
+  .scene .fg h3,.scene .tail{opacity:1!important;transform:none!important}
+  .scene .browser{transform:none!important;filter:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="mk-intro"><img src="logo.png" alt="Yeisson Moncayo"></div>
+
+<!-- ══════════ HEADER ══════════ -->
+<header id="hd">
+  <div class="w in">
+    <a href="#top"><img src="logo.png" alt="Yeisson Moncayo · Programador"></a>
+    <nav id="nav">
+      <a href="#diagnosticos">Diagnósticos</a>
+      <a href="#soluciones">Soluciones</a>
+      <a href="#amedida">A medida</a>
+      <a href="#proceso">Cómo trabajo</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+    <a class="btn btn-wa" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20vengo%20de%20tu%20p%C3%A1gina%20web%20y%20quiero%20saber%20m%C3%A1s%20sobre%20tus%20servicios." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+      WhatsApp
+    </a>
+    <button class="burger" id="bg" aria-label="Menú"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+  <div class="w mk-hero">
+    <div class="pill"><i></i>Disponible para nuevos proyectos</div>
+    <h1 class="mk-split">Primero te muestro dónde pierdes clientes. Después lo arreglo.</h1>
+    <p class="lead">Analizo tu negocio, tu marca o tu tienda con <b>datos reales</b> y te entrego un informe que señala la fuga exacta. Si quieres, la tapo yo: <b>página web, agente de WhatsApp con IA, o el software a medida que tu negocio necesite</b>.</p>
+    <div class="cta">
+      <a class="btn btn-tl" href="#diagnosticos">Ver los diagnósticos</a>
+      <a class="btn btn-gh" href="#soluciones">Ver lo que construyo</a>
+    </div>
+    <div class="strip">
+      <div><svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Cáqueza, Cundinamarca</div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"/></svg>Y en remoto a cualquier país</div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3v18M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Precios claros, sin sorpresas</div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.9"/></svg>Respondo el mismo día</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ LANZAMIENTO ══════════ -->
+<div class="launch">
+  <div class="w">
+    <div class="lbox">
+      <div class="txt">
+        <div class="kick"><i></i>Apertura · cupos limitados</div>
+        <h3>Busco 3 negocios para mostrar en mi portafolio</h3>
+        <p>Estoy arrancando con mi nombre propio y necesito trabajos que enseñar. A los <strong>3 primeros</strong> les hago el proyecto con <strong>30% menos</strong>, y a cambio les pido dos cosas: un testimonio corto en video y permiso para mostrar el trabajo aquí. Mismo trabajo, mismo cuidado — solo que ustedes llegaron primero.</p>
+      </div>
+      <div class="act">
+        <a class="btn btn-tl" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20quiero%20uno%20de%20los%203%20cupos%20de%20apertura%20con%2030%25%20de%20descuento.%20Mi%20negocio%20es%3A%20">Quiero un cupo</a>
+        <div class="cnt"><b>3</b> cupos disponibles</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="mq">
+  <div class="mk-marquee"><div class="mk-marquee-track">
+    <span>Auditoría de negocio</span><span>Páginas web</span><span>Agentes de WhatsApp con IA</span><span>Edición de video vertical</span><span>Análisis de marca personal</span><span>Análisis de canal de YouTube</span><span>Análisis de tienda online</span><span>Soporte de software</span><span>Apps web a medida</span><span>Sistemas de gestión</span><span>Asistentes a medida</span>
+  </div></div>
+</div>
+
+<!-- ══════════ CÓMO FUNCIONA ══════════ -->
+<section class="sec alt" id="comofunciona">
+  <div class="w mk-reveal">
+    <div class="eyebrow">Cómo funciona</div>
+    <h2 class="c">Nadie debería pagarle a un desarrollador antes de saber qué le falta</h2>
+    <p class="sublead">La mayoría contrata una página web porque "toca tener una", y termina con una web bonita que no le trae un solo cliente. Yo trabajo al revés: <b>primero el diagnóstico, después la solución</b>. Así sabes exactamente qué estás comprando y por qué.</p>
+    <div class="flow">
+      <div class="fstep">
+        <div class="n">PASO 1</div>
+        <h3>Te diagnostico</h3>
+        <p>Analizo lo que ya tienes: tu web, tus redes, tus precios, tus reseñas, tus anuncios, tu canal. Con tus datos, no con suposiciones.</p>
+      </div>
+      <div class="farrow">→</div>
+      <div class="fstep">
+        <div class="n">PASO 2</div>
+        <h3>Ves la fuga</h3>
+        <p>Recibes un informe con nota, la fuga exacta por donde se te escapan los clientes y un plan ordenado por lo que más plata te devuelve.</p>
+      </div>
+      <div class="farrow">→</div>
+      <div class="fstep">
+        <div class="n">PASO 3</div>
+        <h3>Decides tú</h3>
+        <p>El informe es tuyo, lo apliques conmigo o con quien quieras. Si prefieres que lo haga yo, ya sabemos los dos exactamente qué hay que hacer.</p>
+      </div>
+    </div>
+
+    <div class="stats" style="margin-top:36px">
+      <div class="stat"><div class="v"><span class="mk-counter" data-value="11">11</span></div><div class="k">dimensiones evaluadas en la auditoría de negocio</div></div>
+      <div class="stat"><div class="v"><span class="mk-counter" data-value="16">16</span></div><div class="k">dimensiones en el análisis de un canal de YouTube</div></div>
+      <div class="stat"><div class="v"><span class="mk-counter" data-value="13">13</span></div><div class="k">puntos de fuga revisados en una tienda online</div></div>
+      <div class="stat"><div class="v"><span class="mk-counter" data-value="24">24</span>/7</div><div class="k">el agente de WhatsApp no duerme ni descansa</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ESCENA 3D · demo del producto ══════════ -->
+<section class="scene" data-mk-scrolly aria-label="Demostración de una web construida por Yeisson">
+  <div class="stage">
+    <div class="sky"></div>
+    <div class="grid"></div>
+    <div class="lay">
+      <div class="browser">
+        <div class="bbar"><i></i><i></i><i></i><div class="url">tunegocio.com</div></div>
+        <div class="bview">
+          <div class="bskel">
+            <div class="nav"><span class="dot"></span><span class="n"></span><span class="n"></span><span class="n"></span><span class="cta"></span></div>
+            <div class="mid">
+              <div class="l1"></div>
+              <div class="l2"></div>
+              <div class="l3"></div>
+              <div class="b"></div>
+            </div>
+            <div class="cards"><div></div><div></div><div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fg"><h3>Tu web no debería ser un folleto quieto</h3></div>
+    <div class="tail">
+      <p>Las páginas que hago se recorren: el contenido llega desde el fondo, se abre en profundidad y te lleva hasta el botón. Esto que acabas de hacer con el scroll — eso es lo que compras.</p>
+      <a class="btn btn-tl" href="#soluciones">Ver cómo se hace</a>
+    </div>
+    <div class="scrollhint">Baja para verlo</div>
+  </div>
+</section>
+
+<!-- ══════════ DIAGNÓSTICOS ══════════ -->
+<section class="sec" id="diagnosticos">
+  <div class="w mk-reveal">
+    <div class="eyebrow">Paso 1 · Diagnósticos</div>
+    <h2 class="c">Informes que te dicen la verdad de tu negocio</h2>
+    <p class="sublead">Cada uno llega como un <b>informe en HTML que abres en tu celular o computador</b>: con notas, gráficos, tus propias frases y un plan priorizado. No es una opinión — es una revisión con criterios fijos.</p>
+
+    <div class="svcs">
+
+      <div class="svc mk-card">
+        <div class="tagd">Más pedido</div>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l3.5-4 3 2.5L21 6"/></svg></div>
+        <h3>Auditoría de negocio</h3>
+        <p class="d">Reviso tu negocio por fuera y por dentro, y cruzo las dos mitades. Ahí aparece lo que nadie ve mirando solo una: el anuncio que lleva a un WhatsApp que nadie contesta, la queja repetida en las reseñas que empieza en tu proceso interno.</p>
+        <ul>
+          <li>Nota digital sobre 100, en 11 dimensiones</li>
+          <li>Nivel de madurez tecnológica de 1 a 5</li>
+          <li>Web, redes, precios, reseñas, Google y anuncios activos</li>
+          <li>Cómo operas por dentro: agenda, cobros, seguimiento</li>
+          <li>Comparación con tu competencia</li>
+          <li>Plan priorizado por retorno</li>
+        </ul>
+        <div class="foot">
+          <div class="price">$250.000 <small>COP</small></div>
+          <div class="deliv">Entrega en 3 días hábiles</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20me%20interesa%20la%20AUDITOR%C3%8DA%20DE%20NEGOCIO%20de%20%24250.000.%20Mi%20negocio%20es%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Solicitar auditoría
+          </a>
+        </div>
+      </div>
+
+      <div class="svc mk-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
+        <h3>Análisis de marca personal</h3>
+        <p class="d">Sigo el camino completo de un desconocido hasta convertirse en cliente tuyo, y te digo en cuál de las cuatro puertas se está cayendo la gente. Casi siempre no es la que uno cree.</p>
+        <ul>
+          <li>Las 4 fases: te encuentran, te entienden, te creen, te contratan</li>
+          <li>La fuga exacta, con tus números de alcance y clics</li>
+          <li>Tu bio y tus ganchos reescritos</li>
+          <li>3 pilares de contenido y 10 ideas concretas</li>
+          <li>Plan de 30 días</li>
+        </ul>
+        <div class="foot">
+          <div class="price">$150.000 <small>COP</small></div>
+          <div class="deliv">Entrega en 2 días hábiles</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20me%20interesa%20el%20AN%C3%81LISIS%20DE%20MARCA%20PERSONAL%20de%20%24150.000.%20Mi%20perfil%20es%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Analizar mi marca
+          </a>
+        </div>
+      </div>
+
+      <div class="svc mk-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Análisis de canal de YouTube</h3>
+        <p class="d">Reviso tu canal como lo haría un consultor: veo tus miniaturas una por una, leo el gancho de tus primeros segundos palabra por palabra y encuentro en qué punto exacto se te cae la gente.</p>
+        <ul>
+          <li>Informe de 14 secciones, 16 dimensiones evaluadas</li>
+          <li>Qué tenían en común tus videos que sí funcionaron</li>
+          <li>Miniaturas revisadas a tamaño real de celular</li>
+          <li>Títulos y miniaturas reescritos para tus videos flojos</li>
+          <li>Tus 10 siguientes videos ya planificados</li>
+        </ul>
+        <div class="foot">
+          <div class="price">$180.000 <small>COP</small></div>
+          <div class="deliv">Entrega en 2 días hábiles</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20me%20interesa%20el%20AN%C3%81LISIS%20DE%20CANAL%20DE%20YOUTUBE%20de%20%24180.000.%20Mi%20canal%20es%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Analizar mi canal
+          </a>
+        </div>
+      </div>
+
+      <div class="svc mk-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2h12l2 5H4z"/><path d="M4 7v13a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7"/><path d="M9 11a3 3 0 0 0 6 0"/></svg></div>
+        <h3>Análisis de tienda online</h3>
+        <p class="d">Recorro tu tienda como la recorre un comprador de verdad: portada, categoría, producto, carrito y hasta el último paso antes de pagar. Y te muestro en qué punto se está yendo la gente sin comprar.</p>
+        <ul>
+          <li>13 dimensiones: ficha, checkout, confianza, precio, móvil</li>
+          <li>Mapa del embudo con las fugas señaladas</li>
+          <li>Peso real de tus imágenes, medido</li>
+          <li>La ficha de tu producto estrella reescrita completa</li>
+          <li>Datos estructurados para que salgas con precio en Google</li>
+        </ul>
+        <div class="foot">
+          <div class="price">$220.000 <small>COP</small></div>
+          <div class="deliv">Entrega en 3 días hábiles</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20me%20interesa%20el%20AN%C3%81LISIS%20DE%20TIENDA%20ONLINE%20de%20%24220.000.%20Mi%20tienda%20es%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Analizar mi tienda
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- demo informe -->
+    <div class="demo">
+      <div class="demolbl">Ejemplo ilustrativo · así se ve un informe</div>
+      <div class="rep">
+        <div class="rh">
+          <div>
+            <div class="t">AUDITORÍA DE NEGOCIO</div>
+            <h4>Panadería El Trigal · Ejemplo</h4>
+          </div>
+          <div class="score">
+            <div class="v">47</div>
+            <div class="l">Nota / 100</div>
+          </div>
+        </div>
+        <div class="rb">
+          <div class="dim"><div class="top"><span>Web y experiencia de usuario</span><span style="color:#ff8a4c">38</span></div><div class="dbar"><i style="width:38%;background:linear-gradient(90deg,#ff5c5c,#ff8a4c)"></i></div></div>
+          <div class="dim"><div class="top"><span>Oferta y precios</span><span style="color:#ffb020">55</span></div><div class="dbar"><i style="width:55%;background:linear-gradient(90deg,#ff8a4c,#ffb020)"></i></div></div>
+          <div class="dim"><div class="top"><span>Redes sociales</span><span style="color:#2fd3de">72</span></div><div class="dbar"><i style="width:72%;background:linear-gradient(90deg,#14a8b4,#2fd3de)"></i></div></div>
+          <div class="dim"><div class="top"><span>Google Business / Maps</span><span style="color:#ff5c5c">21</span></div><div class="dbar"><i style="width:21%;background:linear-gradient(90deg,#c73434,#ff5c5c)"></i></div></div>
+          <div class="dim"><div class="top"><span>Recorrido del cliente</span><span style="color:#ff8a4c">44</span></div><div class="dbar"><i style="width:44%;background:linear-gradient(90deg,#ff5c5c,#ff8a4c)"></i></div></div>
+          <div class="leak">
+            <div class="lt">◆ La fuga principal</div>
+            <p>Tus redes traen gente (72/100), pero tu ficha de Google está sin reclamar y sin horarios. El 68% de quien te busca desde el celular no encuentra cómo llegar ni si estás abierto. <b style="color:var(--tl2)">Arreglar esto cuesta $0 y es lo primero del plan.</b></p>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:12.8px;color:var(--txt3);margin-top:12px;line-height:1.5">Negocio y cifras inventados únicamente para mostrar el formato del informe.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SOLUCIONES ══════════ -->
+<section class="sec alt" id="soluciones">
+  <div class="w mk-reveal">
+    <div class="eyebrow">Paso 2 · Soluciones</div>
+    <h2 class="c">Y esto es lo que construyo para taparla</h2>
+    <p class="sublead">No hace falta que me contrates el diagnóstico primero. Si ya sabes lo que necesitas, <b>vamos directo</b>.</p>
+
+    <div class="svcs">
+
+      <div class="svc mk-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="15" rx="2"/><path d="M2 9h20M6 6.5h.01M9 6.5h.01"/></svg></div>
+        <h3>Página web que sí vende</h3>
+        <p class="d">No una plantilla con tu logo encima. Tomo tu marca real —tus colores, tus fotos, tus precios, tu historia— y construyo una página que se recorre como una experiencia, no como un folleto. En celular pesa poco y carga rápido.</p>
+        <ul>
+          <li><b style="color:var(--tl2)">¿Viste una página que te gustó?</b> Mándamela y hago una a ese nivel, con tu marca</li>
+          <li>Diseño hecho a la medida de tu negocio</li>
+          <li>Rápida en celular, que es donde te van a ver</li>
+          <li>Botón de WhatsApp con mensaje ya escrito</li>
+          <li>Lista para aparecer en Google</li>
+          <li>Publicación y dominio incluidos</li>
+          <li>Diagnóstico de tu web actual, si ya tienes una</li>
+        </ul>
+        <div class="foot">
+          <div class="price"><span class="from">desde</span> $900.000 <small>COP</small></div>
+          <div class="deliv">Entrega en 1 a 2 semanas</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20quiero%20una%20P%C3%81GINA%20WEB%20para%20mi%20negocio.%20Se%20trata%20de%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Quiero mi página
+          </a>
+        </div>
+      </div>
+
+      <div class="svc mk-card">
+        <div class="tagd">Lo más rentable</div>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 20.5l1.5-4.9A8.4 8.4 0 1 1 21 11.5z"/><circle cx="9" cy="11.5" r=".9" fill="currentColor" stroke="none"/><circle cx="12.5" cy="11.5" r=".9" fill="currentColor" stroke="none"/><circle cx="16" cy="11.5" r=".9" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Agente de WhatsApp con IA</h3>
+        <p class="d">Un asistente que atiende tu WhatsApp cuando tú no puedes: responde las dudas de siempre, filtra a quien no te sirve, y al que sí le pasa tu link para que agende solo. Funciona a las 2 de la mañana y los domingos.</p>
+        <ul>
+          <li>Responde con la información real de tu negocio</li>
+          <li>Califica al cliente con las preguntas que tú definas</li>
+          <li>Guarda cada contacto en un CRM ordenado</li>
+          <li>Comparte tu link de agenda cuando el cliente encaja</li>
+          <li>En tu propio servidor, encendido 24/7</li>
+          <li>Si algo falla, te avisa a tu WhatsApp automáticamente</li>
+        </ul>
+        <div class="foot">
+          <div class="price"><span class="from">desde</span> $1.200.000 <small>COP</small></div>
+          <div class="deliv">+ $150.000/mes de servidor y mantenimiento</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20quiero%20un%20AGENTE%20DE%20WHATSAPP%20CON%20IA%20para%20mi%20negocio.%20Se%20trata%20de%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Quiero mi agente
+          </a>
+        </div>
+      </div>
+
+      <div class="svc mk-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 8h18M8 3v18M16 3v18"/></svg></div>
+        <h3>Edición de video para redes</h3>
+        <p class="d">Me mandas el video tal como salió del celular. Te lo devuelvo listo para publicar en TikTok, Reels y Shorts: vertical, con subtítulos que se encienden palabra por palabra y sin una sola pausa muerta.</p>
+        <ul>
+          <li>Vertical 1080×1920 en 60 cuadros por segundo</li>
+          <li>Subtítulos estilo karaoke, quemados en el video</li>
+          <li>Silencios, muletillas y tomas repetidas fuera</li>
+          <li>Volumen parejo de principio a fin</li>
+          <li>Sin marca de agua de nadie</li>
+        </ul>
+        <div class="foot">
+          <div class="price">$35.000 <small>c/u · COP</small></div>
+          <div class="deliv">Paquete de 12 al mes: $350.000</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20quiero%20EDICI%C3%93N%20DE%20VIDEO%20para%20redes.%20Necesito%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Editar mis videos
+          </a>
+        </div>
+      </div>
+
+      <div class="svc mk-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Soporte de software</h3>
+        <p class="d">Tu computador funcionando otra vez. <b style="color:var(--txt)">¿No sabes qué tiene?</b> Tráelo o conéctate conmigo, lo reviso y te digo qué es antes de cobrarte nada. <b style="color:var(--txt)">Solo software</b> — no hago reparación de partes físicas.</p>
+        <ul>
+          <li><b style="color:var(--tl2)">Diagnóstico sin costo:</b> te digo qué tiene y cuánto vale arreglarlo</li>
+          <li>Se apaga, se congela, arranca en pantalla azul o no arranca</li>
+          <li>Formateo e instalación de sistema desde cero</li>
+          <li>Limpieza de virus y programas basura</li>
+          <li>Instalación y licencias de programas</li>
+          <li>Optimización de computadores lentos</li>
+          <li>Respaldo de tu información antes de tocar nada</li>
+        </ul>
+        <div class="foot">
+          <div class="price"><span class="from">revisión gratis · arreglo desde</span> $70.000 <small>COP</small></div>
+          <div class="deliv">Cáqueza y alrededores · o remoto</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20necesito%20SOPORTE%20DE%20SOFTWARE.%20Mi%20problema%20es%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Necesito soporte
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- demos -->
+    <div class="demo">
+      <div class="demolbl">Ejemplo ilustrativo · así trabaja el agente y así queda un video</div>
+      <div class="demogrid">
+
+        <div class="wap">
+          <div class="wah">
+            <div class="av">D</div>
+            <div>
+              <div class="nm">Dental Sonrisa · Ejemplo</div>
+              <div class="st"><i></i>respondiendo automáticamente</div>
+            </div>
+          </div>
+          <div class="wab">
+            <div class="msg them">Buenas noches, ¿cuánto vale una limpieza dental?<div class="tm">11:42 p.m.</div></div>
+            <div class="msg me">¡Hola! La limpieza está en $120.000 e incluye valoración. ¿Es tu primera vez con nosotros?<div class="tm">11:42 p.m.</div></div>
+            <div class="msg them">Sí, primera vez. ¿Atienden sábados?<div class="tm">11:43 p.m.</div></div>
+            <div class="msg me">Sí, sábados de 8 a 1. Como es tu primera vez la valoración va sin costo 🙌<br><br>Te dejo la agenda para que elijas la hora que te sirva:<br>👉 agenda.dentalsonrisa.co<div class="tm">11:43 p.m.</div></div>
+            <div class="msg them">Listo, ya reservé para el sábado 10am<div class="tm">11:45 p.m.</div></div>
+          </div>
+          <div class="wafoot">Cita agendada a las 11:45 p.m. · sin que nadie estuviera despierto</div>
+        </div>
+
+        <div class="vid">
+          <div class="vbox before">
+            <div class="lb">Como lo grabaste</div>
+            <div class="frame h">
+              <video src="antes.mp4" muted loop playsinline preload="metadata"></video>
+              <div class="ph">
+                <span class="illb">Ilustración</span>
+                <div class="sujeto"></div>
+                <div class="crop"></div>
+                <div class="cropLb">se pierde la mitad</div>
+                <span class="ehh e1">eeeh…</span>
+                <span class="ehh e2">o sea…</span>
+                <div class="wave">
+                  <i class="a"></i><i class="b"></i><i class="c"></i><i class="a"></i>
+                  <i class="sil"></i><i class="sil"></i><i class="sil"></i>
+                  <i class="c"></i><i class="b"></i><i class="a"></i><i class="c"></i>
+                  <i class="sil"></i><i class="sil"></i>
+                  <i class="b"></i><i class="a"></i><i class="c"></i><i class="b"></i>
+                  <i class="sil"></i><i class="sil"></i><i class="sil"></i>
+                  <i class="a"></i><i class="c"></i>
+                </div>
+              </div>
+            </div>
+            <ul>
+              <li>Horizontal, no llena la pantalla</li>
+              <li>Silencios y "eeeh" por todo lado</li>
+              <li>Sin subtítulos: se ve sin sonido y nadie entiende</li>
+            </ul>
+          </div>
+          <div class="vbox after">
+            <div class="lb">Como te lo devuelvo</div>
+            <div class="frame v">
+              <video src="despues.mp4" muted loop playsinline preload="metadata"></video>
+              <div class="ph">
+                <span class="illb">Ilustración</span>
+                <div class="sujeto"></div>
+                <div class="karaoke"><span>ESTO</span> <span>NADIE</span> <span>TE</span> <span>LO</span> <span>DICE</span> <span>NUNCA</span></div>
+              </div>
+            </div>
+            <ul>
+              <li>Vertical, llena toda la pantalla</li>
+              <li>Al grano, sin pausas muertas</li>
+              <li>Subtítulos que se encienden palabra por palabra</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <p style="font-size:12.8px;color:var(--txt3);margin-top:14px;line-height:1.5">Conversación y negocio inventados únicamente para mostrar cómo funciona el servicio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ A MEDIDA ══════════ -->
+<section class="sec" id="amedida">
+  <div class="w mk-reveal">
+    <div class="eyebrow">Paso 3 · Desarrollo a medida</div>
+    <h2 class="c">Y si lo que necesitas no existe todavía, lo programo</h2>
+    <p class="sublead">Aquí ya no hablamos de una página: hablamos de <b>software que hace funcionar tu negocio</b>. Sistemas con usuarios, con base de datos y con tu forma de trabajar metida adentro.</p>
+
+    <div class="svcs">
+
+      <div class="svc mk-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M10 18h4"/><path d="M8.5 7.5h7M8.5 11h7M8.5 14h4"/></svg></div>
+        <h3>App web para tus clientes</h3>
+        <p class="d">Un sistema al que entran <b style="color:var(--txt)">tus clientes</b> desde el celular, sin descargar nada. Reservan, piden, consultan o pagan solos. Tú dejas de ser el intermediario de cada movimiento.</p>
+        <ul>
+          <li>Reservas y citas: el cliente elige hora y queda agendado</li>
+          <li>Pedidos a domicilio con estado y seguimiento</li>
+          <li>Portal donde tu cliente consulta su cuenta o su historial</li>
+          <li>Pagos en línea conectados a tu pasarela</li>
+          <li>Funciona en celular como si fuera una aplicación</li>
+          <li>Sin costos de Play Store ni App Store</li>
+        </ul>
+        <div class="foot">
+          <div class="price"><span class="from">desde</span> $3.000.000 <small>COP</small></div>
+          <div class="deliv">De 4 a 8 semanas · según alcance</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20quiero%20una%20APP%20WEB%20PARA%20MIS%20CLIENTES.%20Lo%20que%20necesito%20es%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Hablemos del proyecto
+          </a>
+        </div>
+      </div>
+
+      <div class="svc mk-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="6.5" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17.5" y="4.5" width="3" height="13.5"/></svg></div>
+        <h3>Sistema de gestión para tu negocio</h3>
+        <p class="d">El software que usas <b style="color:var(--txt)">tú y tu gente</b> por dentro. Lo que hoy está en cuadernos, en Excel o en la cabeza de alguien, ordenado en un solo lugar y con los números a la vista.</p>
+        <ul>
+          <li>Inventario con alerta cuando algo se está acabando</li>
+          <li>Facturación y cotizaciones que salen en PDF</li>
+          <li>Control de créditos y fiados, sin cuaderno que se pierda</li>
+          <li>Panel del dueño: ventas del día, qué se vende más, quién debe</li>
+          <li>Usuarios con permisos: cada empleado ve solo lo suyo</li>
+          <li>Entra desde cualquier computador o celular</li>
+        </ul>
+        <div class="foot">
+          <div class="price"><span class="from">desde</span> $3.000.000 <small>COP</small></div>
+          <div class="deliv">De 4 a 8 semanas · según alcance</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20quiero%20un%20SISTEMA%20DE%20GESTI%C3%93N%20para%20mi%20negocio.%20Lo%20que%20necesito%20controlar%20es%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Hablemos del proyecto
+          </a>
+        </div>
+      </div>
+
+      <div class="svc mk-card">
+        <div class="tagd">Se paga solo</div>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11l-1 8.5 8.5-11.5H12z"/></svg></div>
+        <h3>Asistente a medida</h3>
+        <p class="d">¿Hay una tarea que repites todas las semanas y te come horas? Me la cuentas con tus palabras y te construyo algo que la hace por ti. No es una plantilla: se construye para tu caso y <b style="color:var(--txt)">se prueba delante de ti antes de entregártelo</b>.</p>
+        <ul>
+          <li>Revisar contratos y marcar las cláusulas de riesgo</li>
+          <li>Armar presupuestos con cuatro datos, listos en PDF</li>
+          <li>Vigilar facturas de proveedores y avisar de las subidas</li>
+          <li>Convertir tus notas de voz en fichas de producto</li>
+          <li>Responder reseñas con tu tono, una por una</li>
+          <li>Actas de reunión con tareas, responsable y fecha</li>
+        </ul>
+        <div class="foot">
+          <div class="price"><span class="from">desde</span> $700.000 <small>COP</small></div>
+          <div class="deliv">De 1 a 2 semanas</div>
+          <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20quiero%20un%20ASISTENTE%20A%20MEDIDA.%20La%20tarea%20que%20repito%20cada%20semana%20es%3A%20">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+            Contarle mi tarea
+          </a>
+        </div>
+      </div>
+
+      <div class="svc ask mk-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M9.2 9a2.9 2.9 0 0 1 5.6 1c0 2-2.8 2.7-2.8 4.5"/><circle cx="12" cy="18" r=".9" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="9.5"/></svg></div>
+        <h3>¿No encuentras lo tuyo?</h3>
+        <p class="d">Esta lista es lo que más me piden, no todo lo que puedo hacer. Si tienes una idea, un problema que te está costando plata o algo que viste por ahí y quieres saber si se puede — <b style="color:var(--txt)">pregúntame</b>.</p>
+        <ul>
+          <li>Te digo de una si se puede hacer o no</li>
+          <li>Si no es lo mío, te digo con quién sí</li>
+          <li>Si hay una forma más barata de resolverlo, te la digo aunque yo no cobre</li>
+          <li>Sin compromiso y sin discurso de ventas</li>
+        </ul>
+        <div class="foot">
+          <div class="price" style="font-size:20px">Consulta gratis</div>
+          <div class="deliv">Te respondo el mismo día</div>
+          <a class="btn btn-tl" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20tengo%20una%20idea%2Fnecesidad%20que%20no%20vi%20en%20tu%20p%C3%A1gina%20y%20quiero%20saber%20si%20se%20puede%20hacer.%20Se%20trata%20de%3A%20">
+            Cuéntame qué necesitas
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESO ══════════ -->
+<section class="sec alt" id="proceso">
+  <div class="w mk-reveal">
+    <div class="eyebrow">Cómo trabajo</div>
+    <h2 class="c">Sin reuniones eternas ni presupuestos que nunca llegan</h2>
+    <p class="sublead">Cuatro pasos. Sabes qué pasa en cada uno y cuánto va a costar antes de poner un peso.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>Me escribes</h3>
+        <p>Por WhatsApp, con el botón del servicio que te interese. Me cuentas de qué se trata tu negocio y qué te está pasando.</p>
+      </div>
+      <div class="step">
+        <h3>Te confirmo precio y fecha</h3>
+        <p>El mismo día te digo cuánto cuesta exacto, qué recibes y qué día lo tienes. Si no me sirve el proyecto, te lo digo de una.</p>
+      </div>
+      <div class="step">
+        <h3>Trabajo con anticipo</h3>
+        <p>50% para arrancar, 50% al entregar. En diagnósticos, el pago completo al inicio porque la entrega es en días.</p>
+      </div>
+      <div class="step">
+        <h3>Entrego y te explico</h3>
+        <p>Te lo entrego funcionando y con una explicación en video de cómo usarlo. Y quedo pendiente por si algo se rompe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="sec" id="faq">
+  <div class="w mk-reveal">
+    <div class="eyebrow">Preguntas</div>
+    <h2 class="c">Lo que todos me preguntan antes de decidir</h2>
+    <div class="faq" style="margin-top:34px">
+      <details open>
+        <summary>¿Por qué debería empezar por un diagnóstico y no directo por la página web?</summary>
+        <p>Porque si el problema no era la web, la web no lo arregla. He visto negocios pagar por una página nueva cuando su fuga real era que su ficha de Google no existía — un arreglo que cuesta cero pesos. El diagnóstico cuesta una fracción de lo que cuesta equivocarse, y el informe queda tuyo así después trabajes con otra persona.</p>
+      </details>
+      <details>
+        <summary>¿Cuál es la diferencia entre una página web y una app web?</summary>
+        <p>La página <strong>informa</strong>: la gente lee lo que ofreces, mira tus precios y te escribe. La app web es un sistema donde la gente <strong>hace</strong> algo: entra con su usuario, reserva, pide, consulta su cuenta o registra información que queda guardada. Por eso una arranca en $900.000 y la otra en $3.000.000 — no es el diseño lo que cambia, es que hay una base de datos y usuarios detrás. Si no estás seguro de cuál necesitas, escríbeme y te lo digo en cinco minutos: muchas veces la página basta y te ahorras el resto.</p>
+      </details>
+      <details>
+        <summary>Vi una página que me encantó, ¿me puedes hacer una igual?</summary>
+        <p><strong>Igual no, y te conviene que sea así.</strong> Copiar una página tal cual tiene dos problemas: el diseño, los textos y las fotos de esa empresa tienen dueño, y además esa página está hecha para <em>su</em> negocio — con su marca, su público y sus productos. Puesta sobre el tuyo se ve prestada.<br><br>Lo que sí hago, y es como trabaja todo el mundo en diseño: me la mandas como <strong>referencia</strong>. Yo miro qué te gustó —la estructura, el movimiento, la forma de mostrar los productos, el nivel de acabado— y construyo algo a ese nivel o mejor, pero con tu identidad. El resultado te va a gustar más que la copia, porque va a ser tuyo.</p>
+      </details>
+      <details>
+        <summary>Mi computador falla pero no sé qué tiene, ¿igual me sirves?</summary>
+        <p>Sí, y de hecho es el caso más común. Tráelo o conéctate conmigo por control remoto, lo reviso y <strong>te digo qué tiene y cuánto vale arreglarlo antes de cobrarte nada</strong>. Si resulta ser una pieza dañada —el disco, la pantalla, la batería— también te lo digo, aunque eso no lo hago yo: te digo qué es y a dónde llevarlo, para que nadie te cobre de más por algo que ya sabes.</p>
+      </details>
+      <details>
+        <summary>¿Qué es exactamente un "asistente a medida"?</summary>
+        <p>Piensa en esa tarea que haces todas las semanas y siempre igual: revisar contratos, armar presupuestos, contestar reseñas, cuadrar facturas de proveedores. Me la cuentas con tus palabras y construyo una herramienta que la hace por ti. No es un programa que compras en una caja — se arma para tu caso concreto, con tus criterios, y lo pruebo funcionando delante de ti antes de entregártelo. La regla para saber si vale la pena: si esa tarea te come más de tres horas al mes, se paga sola.</p>
+      </details>
+      <details>
+        <summary>¿Tengo que estar en Cáqueza para contratarte?</summary>
+        <p>Solo para el soporte de software presencial. Los diagnósticos, la página web, el agente de WhatsApp y la edición de video se hacen 100% a distancia — trabajo con clientes de cualquier ciudad de Colombia y del exterior.</p>
+      </details>
+      <details>
+        <summary>¿El agente de WhatsApp usa mi número personal?</summary>
+        <p>No, y no deberías. El agente necesita un número dedicado al negocio, porque el celular queda vinculado al sistema. Si aún no tienes uno aparte, te ayudo a montarlo — una SIM adicional cuesta muy poco y te separa el trabajo de tu vida.</p>
+      </details>
+      <details>
+        <summary>¿Qué pasa si el informe me dice que no necesito nada?</summary>
+        <p>Pues te ahorré la plata, que también es un buen resultado. Prefiero decirte que tu web está bien y que tu problema está en otro lado, a venderte algo que no te sirve. Un cliente al que le vendí lo que no necesitaba no me recomienda con nadie.</p>
+      </details>
+      <details>
+        <summary>¿Los precios son fijos?</summary>
+        <p>Los diagnósticos sí, son precio cerrado. La página web y el agente dicen "desde" porque dependen del tamaño: no cuesta igual una página de un solo servicio que un catálogo con 200 productos. Después de que me cuentes de qué se trata, te doy el precio exacto y ese no se mueve.</p>
+      </details>
+      <details>
+        <summary>¿Cómo se paga?</summary>
+        <p>Transferencia, Nequi o Bancolombia. Diagnósticos por adelantado; proyectos con 50% de anticipo y 50% contra entrega. Te paso comprobante de todo.</p>
+      </details>
+      <details>
+        <summary>¿Y después de entregar, quedo solo?</summary>
+        <p>No. Toda entrega incluye 30 días de acompañamiento para ajustes y dudas. En el agente de WhatsApp el acompañamiento es permanente mientras esté activo el mantenimiento mensual, porque es un sistema que corre todos los días y hay que vigilarlo.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA FINAL ══════════ -->
+<section class="final">
+  <div class="w">
+    <h2 class="c">Escríbeme y te digo qué te está faltando</h2>
+    <p class="lead">Cuéntame de qué se trata tu negocio. Te respondo el mismo día con qué haría yo, cuánto cuesta y en cuánto tiempo — sin compromiso y sin discurso de ventas.</p>
+    <div class="cta">
+      <a class="btn btn-wa mk-pulse" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20vengo%20de%20tu%20p%C3%A1gina%20web.%20Mi%20negocio%20es%3A%20">
+        <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+        Escribir por WhatsApp
+      </a>
+      <a class="btn btn-gh" href="tel:+573132781668">Llamar al 313 278 1668</a>
+    </div>
+    <p class="finalnote">Respondo de lunes a sábado · Cáqueza, Cundinamarca y toda Colombia</p>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="w">
+    <div class="fgrid">
+      <div>
+        <img src="logo.png" alt="Yeisson Moncayo">
+        <p class="fd">Desarrollo de software, agentes de IA y diagnósticos digitales para negocios que quieren dejar de perder clientes.</p>
+      </div>
+      <div class="fcol">
+        <h5>Diagnósticos</h5>
+        <a href="#diagnosticos">Auditoría de negocio</a>
+        <a href="#diagnosticos">Marca personal</a>
+        <a href="#diagnosticos">Canal de YouTube</a>
+        <a href="#diagnosticos">Tienda online</a>
+      </div>
+      <div class="fcol">
+        <h5>Soluciones</h5>
+        <a href="#soluciones">Página web</a>
+        <a href="#soluciones">Agente de WhatsApp</a>
+        <a href="#soluciones">Edición de video</a>
+        <a href="#soluciones">Soporte de software</a>
+      </div>
+      <div class="fcol">
+        <h5>A medida</h5>
+        <a href="#amedida">App web para clientes</a>
+        <a href="#amedida">Sistema de gestión</a>
+        <a href="#amedida">Asistente a medida</a>
+        <a href="#amedida">Consulta gratis</a>
+      </div>
+      <div class="fcol">
+        <h5>Contacto</h5>
+        <a href="https://wa.me/573132781668" target="_blank" rel="noopener">WhatsApp 313 278 1668</a>
+        <a href="mailto:yeisonmoncayo30@gmail.com">yeisonmoncayo30@gmail.com</a>
+        <span>Cáqueza, Cundinamarca</span>
+        <span>Colombia · trabajo remoto</span>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="yr">2026</span> Yeisson Moncayo · Todos los derechos reservados</span>
+      <span>Hecho a mano, sin plantillas</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float" id="fl" target="_blank" rel="noopener" href="https://wa.me/573132781668?text=Hola%20Yeisson%2C%20vengo%20de%20tu%20p%C3%A1gina%20web.%20Mi%20negocio%20es%3A%20">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2"/></svg>
+  Escríbeme
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var hd = document.getElementById('hd'), fl = document.getElementById('fl');
+function onScroll(){
+  var y = window.scrollY;
+  hd.classList.toggle('sc', y > 20);
+  fl.classList.toggle('on', y > 620);
+}
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+var nav = document.getElementById('nav');
+document.getElementById('bg').addEventListener('click', function(){ nav.classList.toggle('open'); });
+nav.addEventListener('click', function(e){ if(e.target.tagName === 'A') nav.classList.remove('open'); });
+
+// Videos del antes/después: si los archivos existen se muestran y se reproducen
+// solos al entrar en pantalla. Si no están, queda el dibujo de ejemplo.
+document.querySelectorAll('.frame video').forEach(function(v){
+  var listo = false;
+  function activar(){
+    if(listo) return;
+    listo = true;
+    v.parentElement.classList.add('has-video');
+    v.preload = 'auto';
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ e.isIntersecting ? v.play().catch(function(){}) : v.pause(); });
+      }, {threshold:.3}).observe(v);
+    } else { v.play().catch(function(){}); }
+  }
+  v.addEventListener('loadedmetadata', activar);
+  v.addEventListener('canplay', activar);
+  v.addEventListener('error', function(){ v.remove(); });
+  if(v.readyState >= 1) activar();          // ya estaba cargado
+  else if(v.networkState === 3) v.remove(); // no existe el archivo
+});
+
+// Resalta las palabras clave del titular después de que motion.js lo trocea
+window.addEventListener('load', function(){
+  var h1 = document.querySelector('h1.mk-split');
+  if(!h1) return;
+  [3,4,5].forEach(function(i){
+    var w = h1.querySelectorAll('.mk-w')[i];
+    if(w) w.classList.add('hl');
+  });
+});
+</script>
+<script src="motion.js" defer></script>
+</body>
+</html>
