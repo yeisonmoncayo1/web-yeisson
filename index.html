@@ -413,6 +413,20 @@ footer .fd{font-size:13.5px;color:var(--txt2);max-width:34ch;line-height:1.6}
   font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--txt3);border:1px solid var(--line2);padding:2px 8px;border-radius:99px;margin-left:auto;
 }
+/* en la maqueta pequeña: menos elementos, pero legibles */
+@container (max-width:460px){
+  .bskel{font-size:clamp(6.6px,2.15cqi,9.2px)}
+  .bskel .nav .n{display:none}
+  .bskel .l3{display:none}
+  .bskel .l1{font-size:1.02em;margin-bottom:.85em}
+  .bskel .l2{font-size:2.5em;max-width:13ch;margin-bottom:1.1em}
+  .bskel .nav .cta{font-size:1.1em}
+  .bskel .b{font-size:1.25em;padding:.75em 1.5em}
+  .bskel .cards{gap:.6em}
+  .bskel .cards div{min-height:0;padding:.8em .7em;gap:.3em}
+  .bskel .cards b{font-size:1.12em}
+  .bskel .cards span{font-size:1em}
+}
 .scene .fg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;pointer-events:none;
   transform:translateZ(calc(190px*(1 - var(--mk-p,0))))}
 .scene .fg h3{font-size:clamp(24px,4.6vw,44px);font-weight:900;letter-spacing:-.035em;max-width:16ch;line-height:1.08;
