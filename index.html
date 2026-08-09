@@ -376,21 +376,43 @@ footer .fd{font-size:13.5px;color:var(--txt2);max-width:34ch;line-height:1.6}
 .bbar{height:32px;background:var(--card2);display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line)}
 .bbar i{width:9px;height:9px;border-radius:50%;background:#39424b;display:block}
 .bbar .url{margin-left:12px;font-family:var(--mono);font-size:10.5px;color:var(--txt3);background:var(--bg);padding:4px 14px;border-radius:99px;flex:1;max-width:290px;text-align:center}
-.bview{aspect-ratio:16/10;position:relative;background:linear-gradient(165deg,#0e161a,#080b0e);overflow:hidden;padding:14px 18px}
+.bview{aspect-ratio:16/10;position:relative;background:linear-gradient(165deg,#0e161a,#080b0e);overflow:hidden;padding:3.4% 4.2%;container-type:inline-size}
 .bview::before{content:'';position:absolute;inset:0;background:radial-gradient(400px 240px at 74% 8%,rgba(20,168,180,.26),transparent 66%)}
 .bskel{position:relative;height:100%;display:flex;flex-direction:column}
 .bskel .nav{display:flex;align-items:center;gap:9px;margin-bottom:auto}
 .bskel .nav .dot{width:15px;height:15px;border-radius:50%;background:linear-gradient(135deg,var(--tl2),var(--tl3));flex:0 0 15px}
-.bskel .nav .n{height:5px;width:34px;background:rgba(255,255,255,.15);border-radius:99px}
-.bskel .nav .cta{margin-left:auto;height:17px;width:60px;border-radius:99px;background:rgba(47,211,222,.35)}
-.bskel .mid{text-align:center;padding:6px 0 14px}
-.bskel .l1{height:8px;width:112px;background:rgba(47,211,222,.55);border-radius:99px;margin:0 auto 12px}
-.bskel .l2{height:17px;width:min(320px,58%);background:rgba(255,255,255,.2);border-radius:5px;margin:0 auto 7px}
-.bskel .l3{height:17px;width:min(215px,40%);background:rgba(255,255,255,.11);border-radius:5px;margin:0 auto 15px}
-.bskel .b{display:inline-block;height:26px;width:112px;border-radius:99px;background:linear-gradient(135deg,var(--tl2),var(--tl));box-shadow:0 5px 18px rgba(47,211,222,.28)}
-.bskel .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:auto}
-.bskel .cards div{height:52px;border-radius:8px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.bskel{font-size:clamp(4.6px,1.42cqi,12.6px)}
+.bskel .nav .n{font-size:1em;font-weight:600;color:rgba(255,255,255,.52);white-space:nowrap}
+.bskel .nav .cta{
+  margin-left:auto;border-radius:99px;padding:.55em 1.15em;white-space:nowrap;
+  background:linear-gradient(135deg,var(--tl2),var(--tl));color:#032024;font-size:.95em;font-weight:800;
+}
+.bskel .mid{text-align:center;padding:.6em 0 1.2em}
+.bskel .l1{
+  color:var(--tl2);font-size:.92em;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;margin:0 0 .95em;
+}
+.bskel .l2{
+  color:#fff;font-size:2.3em;font-weight:900;letter-spacing:-.025em;line-height:1.06;
+  margin:0 auto .5em;max-width:15ch;
+}
+.bskel .l3{color:rgba(255,255,255,.56);font-size:1.06em;line-height:1.45;margin:0 auto 1.5em;max-width:32ch}
+.bskel .b{
+  display:inline-block;border-radius:99px;padding:.8em 1.6em;font-size:1em;font-weight:800;color:#032024;
+  background:linear-gradient(135deg,var(--tl2),var(--tl));box-shadow:0 5px 18px rgba(47,211,222,.28);
+}
+.bskel .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.75em;margin-top:auto}
+.bskel .cards div{
+  border-radius:.7em;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);
+  padding:.9em .95em;display:flex;flex-direction:column;gap:.4em;justify-content:center;min-height:4.6em;text-align:left;
+}
 .bskel .cards div:nth-child(2){background:rgba(47,211,222,.08);border-color:rgba(47,211,222,.2)}
+.bskel .cards b{font-size:1.02em;font-weight:700;color:rgba(255,255,255,.87);line-height:1.2}
+.bskel .cards span{font-family:var(--mono);font-size:.9em;font-weight:700;color:var(--tl2)}
+.bbar .ej{
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--txt3);border:1px solid var(--line2);padding:2px 8px;border-radius:99px;margin-left:auto;
+}
 .scene .fg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;pointer-events:none;
   transform:translateZ(calc(190px*(1 - var(--mk-p,0))))}
 .scene .fg h3{font-size:clamp(24px,4.6vw,44px);font-weight:900;letter-spacing:-.035em;max-width:16ch;line-height:1.08;
@@ -575,17 +597,27 @@ footer .fd{font-size:13.5px;color:var(--txt2);max-width:34ch;line-height:1.6}
     <div class="grid"></div>
     <div class="lay">
       <div class="browser">
-        <div class="bbar"><i></i><i></i><i></i><div class="url">tunegocio.com</div></div>
+        <div class="bbar"><i></i><i></i><i></i><div class="url">panaderiaeltrigal.com</div><span class="ej">Ejemplo</span></div>
         <div class="bview">
           <div class="bskel">
-            <div class="nav"><span class="dot"></span><span class="n"></span><span class="n"></span><span class="n"></span><span class="cta"></span></div>
-            <div class="mid">
-              <div class="l1"></div>
-              <div class="l2"></div>
-              <div class="l3"></div>
-              <div class="b"></div>
+            <div class="nav">
+              <span class="dot"></span>
+              <span class="n">Productos</span>
+              <span class="n">Pedidos</span>
+              <span class="n">Nosotros</span>
+              <span class="cta">Pedir ahora</span>
             </div>
-            <div class="cards"><div></div><div></div><div></div></div>
+            <div class="mid">
+              <div class="l1">Horneado cada mañana · Cáqueza</div>
+              <div class="l2">Pan de verdad, del horno a tu mesa</div>
+              <div class="l3">Pide hoy hasta las 6 p.m. y recíbelo calientico mañana a primera hora.</div>
+              <div class="b">Pedir por WhatsApp</div>
+            </div>
+            <div class="cards">
+              <div><b>Almojábanas</b><span>$1.500 c/u</span></div>
+              <div><b>Pan de yuca</b><span>$1.200 c/u</span></div>
+              <div><b>Torta de la casa</b><span>$28.000</span></div>
+            </div>
           </div>
         </div>
       </div>
